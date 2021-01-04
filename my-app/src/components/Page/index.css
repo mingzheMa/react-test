@@ -1,0 +1,29 @@
+.page {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.page-item {
+  padding: 2px 4px;
+  color: #000;
+  border: 1px solid #000;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.page-item:last-child {
+  margin-right: 0;
+}
+
+.page--disable {
+  color: #999;
+  border: 1px solid #999;
+  cursor: not-allowed;
+}
+
+.page--select {
+  color: red;
+  cursor: not-allowed;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
