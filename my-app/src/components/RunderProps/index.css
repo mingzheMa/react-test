@@ -1,0 +1,15 @@
+.box {
+  width: 400px;
+  height: 400px;
+  display: inline-block;
+  border: 1px solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.box-sub {
+  width: 100px;
+  height: 100px;
+  background-color: #abcdef;
+  position: absolute;
+}
