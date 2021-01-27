@@ -2,37 +2,25 @@ import React, { Component } from "react";
 import "./index.css";
 
 export default class index extends Component {
-  state = {
-    current: this.props.current || 1,
-    pageSize: this.props.pageSize || 10,
-    total: this.props.total || 0,
-    showSizer: this.props.showSizer || false,
-    showTotal: this.props.showTotal || false,
-    previewPage: this.props.showTotal || 5
-  };
-
   //   获取总页数
   getPageNum() {
-    const { total, pageSize } = this.state;
+    const { total, pageSize } = this.props;
     return Math.ceil(total / pageSize);
   }
 
   //   是否为开头
   isStart() {
-    return this.state.current === 1;
+    return this.props.current === 1;
   }
 
   //   是否未结尾
   isEnd() {
-    return this.state.current === this.getPageNum();
+    return this.props.current === this.getPageNum();
   }
 
   //   跳转分页
   toPage = page => {
-    if (page > 0 && page <= this.getPageNum() && page !== this.state.current) {
-      this.setState({
-        current: page
-      });
+    if (page > 0 && page <= this.getPageNum() && page !== this.props.current) {
       this.props.onChange && this.props.onChange(page);
     }
   };
@@ -40,11 +28,10 @@ export default class index extends Component {
   // 预览页
   previewPage() {
     const all = this.getPageNum();
-    const cur = this.state.current;
-    const prv = this.state.previewPage;
+    const cur = this.props.current;
+    const prv = this.props.previewPage || 10;
     const min = cur - Math.floor(prv / 2);
-    const minPage = min > 0 ? min : 1;
-
+    const minPage = min > 0 ? (min > all - prv ? all - prv + 1 : min) : 1;
     const max = minPage + prv - 1;
     const maxPage = max > all ? all : max;
 
@@ -73,13 +60,13 @@ export default class index extends Component {
         </li>
         <li
           className={this.isStart() ? "page-item page--disable" : "page-item"}
-          onClick={() => this.toPage(this.state.current - 1)}>
+          onClick={() => this.toPage(this.props.current - 1)}>
           上一页
         </li>
         {this.previewPage()}
         <li
           className={this.isEnd() ? "page-item page--disable" : "page-item"}
-          onClick={() => this.toPage(this.state.current + 1)}>
+          onClick={() => this.toPage(this.props.current + 1)}>
           下一页
         </li>
         <li
@@ -89,7 +76,7 @@ export default class index extends Component {
         </li>
 
         <li>
-          {this.state.current} / {this.getPageNum()}
+          {this.props.current} / {this.getPageNum()}
         </li>
       </ul>
     );
