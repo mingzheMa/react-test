@@ -29,7 +29,7 @@ export default class index extends Component {
   previewPage() {
     const all = this.getPageNum();
     const cur = this.props.current;
-    const prv = this.props.previewPage || 10;
+    const prv = this.props.previewPage || 5;
     const min = cur - Math.floor(prv / 2);
     const minPage = min > 0 ? (min > all - prv ? all - prv + 1 : min) : 1;
     const max = minPage + prv - 1;
