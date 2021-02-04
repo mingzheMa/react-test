@@ -1,6 +1,8 @@
 import ReactDOM from "react-dom";
 import React, { useMemo, useState, PureComponent } from "react";
 
+// useMemo传入函数（函数必须有返回值，返回值就是监听的变量）和依赖数组，如果依赖数组中的依赖项不发生变化，则函数返回值不发生改变
+
 export default class Comp1 extends PureComponent {
   render() {
     console.log("Comp1 runder");
