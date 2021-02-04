@@ -1,0 +1,43 @@
+.layout {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.side {
+  position: absolute;
+  width: 200px;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  background: #ccc;
+}
+
+.inside {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 200px;
+  right: 0;
+  overflow: auto;
+}
+
+.header {
+  position: absolute;
+  height: 60px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #999;
+}
+
+.content {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
