@@ -19,19 +19,27 @@ const sideList = [
   }
 ];
 
-export default function Side() {
+export default function Side(props) {
   const [sides] = useState(sideList);
 
   const sidesDom = sides.map(s => (
     <li key={s.path}>
-      <a href={s.path}>{s.label}</a>
+      <p
+        onClick={() => {
+          props.history.push(s.path);
+        }}>
+        {s.label}
+      </p>
     </li>
   ));
 
   return (
     <div>
-      <h1>
-        <a href="/">LOGO</a>
+      <h1
+        onClick={() => {
+          props.history.push("/");
+        }}>
+        LOGO
       </h1>
       <ul>{sidesDom}</ul>
     </div>

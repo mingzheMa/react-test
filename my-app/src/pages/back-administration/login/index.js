@@ -1,10 +1,15 @@
 import React from "react";
 
-export default function Login() {
+export default function Login(props) {
   return (
     <div>
       Login
-      <a href="/">登录</a>
+      <button
+        onClick={() => {
+          props.history.push("/");
+        }}>
+        登录
+      </button>
     </div>
   );
 }
