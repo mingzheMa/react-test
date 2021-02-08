@@ -1,4 +1,5 @@
 import React from "react";
+import qs from "query-string";
 
 export default function Login(props) {
   return (
@@ -6,7 +7,9 @@ export default function Login(props) {
       Login
       <button
         onClick={() => {
-          props.history.push("/");
+          const search = qs.parse(props.location.search);
+          props.history.push(`${search.backUrl ? search.backUrl : "/"}`);
+          localStorage.setItem("token", "userToken");
         }}>
         登录
       </button>
