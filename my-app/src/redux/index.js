@@ -1,5 +1,5 @@
 import { createStore, bindActionCreators } from "redux";
-import numberAction from "./action/number.action";
+import * as numberAction from "./action/number.action";
 
 function reducer(store, action) {
   switch (action.type) {
@@ -30,7 +30,7 @@ const store = createStore(reducer, 10);
 const action = bindActionCreators(numberAction, store.dispatch);
 
 console.log(store.getState());
-action.jiaAction(10)
+action.jiaAction(10);
 console.log(store.getState());
-action.jianAction(10)
+action.jianAction(10);
 console.log(store.getState());
