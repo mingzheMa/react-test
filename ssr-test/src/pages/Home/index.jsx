@@ -1,5 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Home() {
-  return <h1>Comp Home</h1>;
+  const [num, setNum] = useState(0);
+  return (
+    <div>
+      <h1>num：{num}</h1>
+      <button onClick={() => {
+        setNum(num + 1)
+      }}>++</button>
+    </div>
+  );
 }

@@ -1,10 +1,16 @@
 import React from "react";
-import reactDom from "react-dom/server";
+import ReactDOM from "react-dom/server";
 
-import App from "@/App";
+import fs from "fs";
+import App from "@/serve/App";
 
 export default (req, res) => {
-  const app = reactDom.renderToString(<App />);
+  const result = fs
+    .readdirSync("./public/js")
+    .filter(file => file.endsWith(".js"))
+    .map(file => `<script src="./js/${file}"></script>`)
+    .join("\n");
+
   const template = `
       <!DOCTYPE html>
       <html lang="en">
@@ -15,7 +21,8 @@ export default (req, res) => {
           <title>React SSR</title>
       </head>
       <body>
-          <div id="root">${app}</div>
+          <div id="root">${ReactDOM.renderToString(<App />)}</div>
+          ${result}
       </body>
       </html>
     `;
