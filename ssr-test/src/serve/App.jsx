@@ -8,6 +8,11 @@ import store from "@/store";
 
 import "@/styles/global";
 
+import moviesApi from "@/api/moviesApi";
+moviesApi.getMovies().then(res => {
+  console.log(res);
+});
+
 export default props => {
   return (
     <Provider store={store}>

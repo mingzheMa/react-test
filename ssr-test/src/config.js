@@ -1,3 +1,4 @@
 export default {
-  isWindow: typeof window !== "undefined"
+  isWindow: typeof window !== "undefined",
+  backendSeverURL:"http://yuanjin.tech:5005/"
 };
