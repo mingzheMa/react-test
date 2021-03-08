@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import Admin from "@/layout/Admin";
 import Product from "@/pages/Admin/Product";
 import User from "@/pages/Admin/User";
+import Not from "@/pages/404";
 
 export default [
   {
@@ -27,6 +28,11 @@ export default [
         path: "/admin",
         exact: true,
         render: () => <Redirect to={"/admin/product"}></Redirect>
+      },
+
+      {
+        key: "not",
+        component: Not
       }
     ]
   }
