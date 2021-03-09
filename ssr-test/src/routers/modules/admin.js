@@ -27,7 +27,7 @@ export default [
       {
         path: "/admin",
         exact: true,
-        render: () => <Redirect to={"/admin/product"}></Redirect>
+        component: () => <Redirect to={"/admin/product"}></Redirect>
       },
 
       {

@@ -4,14 +4,11 @@ import { renderRoutes } from "react-router-config";
 import { Provider } from "react-redux";
 
 import routers from "@/routers";
-import store from "@/store";
+import { getStore } from "@/store";
 
 import "@/styles/global";
 
-import moviesApi from "@/api/moviesApi";
-moviesApi.getMovies().then(res => {
-  console.log(res);
-});
+const store = getStore();
 
 export default () => {
   // console.log(routers, renderRoutes(routers));
